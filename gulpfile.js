@@ -6,7 +6,7 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const sourcemaps = require('gulp-sourcemaps');
 const newer = require('gulp-newer');
-// const rename = require("gulp-rename");
+const mode = require('gulp-mode')();
 
 const del = require('del');
 const { rollup } = require('rollup');
@@ -19,10 +19,6 @@ sass.compiler = require('sass');
 
 const dir = {
   src: 'src/',
-  // build: path.relative(
-  //   process.cwd(), 
-  //   'C:\\ospanel\\OSPanel\\domains\\cozy.loc\\wp-content\\themes\\kateslava'
-  // ),
   build: '../../../ospanel/OSPanel/domains/cozy.loc/wp-content/themes/kateslava/',
 };
 
@@ -69,13 +65,13 @@ const css = {
 
 function cssTask() {
   return src(css.src)
-    .pipe(sourcemaps.init())
+    .pipe(mode.development(sourcemaps.init()))
       .pipe(sass({outputStyle: 'compressed'})
         .on('error', sass.logError))
       .pipe(gcmq())
       .pipe(postcss([autoprefixer()]))
-      .pipe(postcss([cssnano()]))
-    .pipe(sourcemaps.write())
+      .pipe(mode.production(postcss([cssnano()])))
+    .pipe(mode.development(sourcemaps.write()))
     .pipe(dest(css.build))
     .pipe(browserSync.reload({stream: true}));
 }
@@ -90,8 +86,8 @@ async function jsTask() {
   const outputConfig = {
     dir: js.build,
     format: 'esm',
-    sourcemap: true,
-    plugins: [terser()]
+    sourcemap: mode.development(),
+    plugins: mode.production() ? [ terser() ] : []
   };
 
   const bundle = await rollup({ 
@@ -122,5 +118,5 @@ exports.img = imagesTask;
 exports.css = cssTask;
 exports.js = jsTask;
 exports.clean = clean;
-exports.build = parallel(phpTask, imagesTask, cssTask, jsTask);
+exports.build = series(clean, parallel(phpTask, imagesTask, cssTask, jsTask));
 exports.default = series(this.build, parallel(watchTask, serve));
