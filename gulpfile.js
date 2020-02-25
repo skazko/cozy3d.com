@@ -1,68 +1,103 @@
 const { src, dest, watch, parallel, series } = require('gulp');
-
-const pug = require('gulp-pug');
-const pugbem = require('gulp-pugbem');
-
 const sass = require('gulp-sass');
+const gcmq = require('gulp-group-css-media-queries');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const sourcemaps = require('gulp-sourcemaps');
+const newer = require('gulp-newer');
 // const rename = require("gulp-rename");
 
+const del = require('del');
 const { rollup } = require('rollup');
 const { terser } = require('rollup-plugin-terser');
+const multiInput = require('rollup-plugin-multi-input');
 
 const browserSync = require('browser-sync').create();
 
-sass.compiler = require('node-sass');
+sass.compiler = require('sass');
 
-pugbem.b = true;
+const dir = {
+  src: 'src/',
+  // build: path.relative(
+  //   process.cwd(), 
+  //   'C:\\ospanel\\OSPanel\\domains\\cozy.loc\\wp-content\\themes\\kateslava'
+  // ),
+  build: '../../../ospanel/OSPanel/domains/cozy.loc/wp-content/themes/kateslava/',
+};
 
-function html() {
-  return src('src/pages/*.pug')
-    .pipe(pug({
-      plugins: [pugbem]
-    }))
-    .pipe(dest('./'))
-    .pipe(browserSync.reload({stream: true}));
+const php = {
+  src: dir.src + 'templates/**/*.php',
+  build: dir.build,
+};
+
+function phpTask() {
+  return src(php.src)
+    .pipe(newer(php.build))
+    .pipe(dest(php.build))
+}
+
+const images = {
+  src: dir.src + 'images/**/*',
+  build: dir.build + 'img/'
+};
+
+function imagesTask() {
+  return src(images.src)
+    .pipe(newer(images.build))
+    .pipe(dest(images.build))
 }
 
 function serve() {
   browserSync.init({
-    server: {
-      baseDir: './' 
-    }
+    proxy: 'cozy.loc',
+    files: dir.build + '/**/*',
+    open: false,
+    notify: false,
+    ghostMode: false,
+    ui: {
+      port: 8001,
+    },
   });
 };
 
-function watchTask() {
-  watch(['src/components/**/*.scss', 'src/styles/*.scss'], css);
-  watch(['src/components/**/*.pug', 'src/pages/*.pug'], html);
-  watch(['src/components/*+/*.js', 'src/scripts/*.js'], series(js, reload));
+const css = {
+  src: dir.src + 'styles/style.scss',
+  watch: dir.src + 'styles/**/*',
+  build: dir.build
 }
 
-function css() {
-  return src('src/styles/main.scss')
-  .pipe(sourcemaps.init())
-    .pipe(sass({outputStyle: 'expanded'})
-      .on('error', sass.logError))
-    // .pipe(postcss([autoprefixer()]))
-    // .pipe(postcss([cssnano()]))
-  .pipe(sourcemaps.write('./'))
-  .pipe(dest('./'))
-  .pipe(browserSync.reload({stream: true}));
+function cssTask() {
+  return src(css.src)
+    .pipe(sourcemaps.init())
+      .pipe(sass({outputStyle: 'compressed'})
+        .on('error', sass.logError))
+      .pipe(gcmq())
+      .pipe(postcss([autoprefixer()]))
+      .pipe(postcss([cssnano()]))
+    .pipe(sourcemaps.write())
+    .pipe(dest(css.build))
+    .pipe(browserSync.reload({stream: true}));
 }
 
-async function js() {
+const js = {
+  src: dir.src + 'js/*.js',
+  watch: dir.src + 'js/**/*',
+  build: dir.build
+}
+
+async function jsTask() {
   const outputConfig = {
-    file: './script.js',
-    format: 'iife',
+    dir: js.build,
+    format: 'esm',
     sourcemap: true,
     plugins: [terser()]
   };
 
-  const bundle = await rollup({ input: './src/scripts/main.js' });
+  const bundle = await rollup({ 
+    input: js.src, 
+    plugins: [multiInput.default()]
+   });
   return bundle.write(outputConfig);
 }
 
@@ -71,4 +106,21 @@ function reload(cb) {
   cb();
 }
 
-exports.default = series(parallel(html, js, css), parallel(watchTask, serve));
+function watchTask() {
+  watch(css.watch, cssTask);
+  watch(php.src, series(phpTask, reload));
+  watch(images.src, series(imagesTask, reload));
+  watch(js.watch, series(jsTask, reload));
+}
+
+function clean() {
+  return del([dir.build + '**', '!' + dir.build], {force: true})
+}
+
+exports.php = phpTask;
+exports.img = imagesTask;
+exports.css = cssTask;
+exports.js = jsTask;
+exports.clean = clean;
+exports.build = parallel(phpTask, imagesTask, cssTask, jsTask);
+exports.default = series(this.build, parallel(watchTask, serve));
