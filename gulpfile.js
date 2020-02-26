@@ -66,12 +66,11 @@ const css = {
 function cssTask() {
   return src(css.src)
     .pipe(mode.development(sourcemaps.init()))
-      .pipe(sass({outputStyle: 'compressed'})
-        .on('error', sass.logError))
-      .pipe(gcmq())
+      .pipe(sass().on('error', sass.logError))
+      // .pipe(gcmq())
       .pipe(postcss([autoprefixer()]))
       .pipe(mode.production(postcss([cssnano()])))
-    .pipe(mode.development(sourcemaps.write()))
+    .pipe(mode.development(sourcemaps.write('./')))
     .pipe(dest(css.build))
     .pipe(browserSync.reload({stream: true}));
 }
