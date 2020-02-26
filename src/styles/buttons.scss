@@ -1,0 +1,77 @@
+@use 'var';
+@use 'sass:color';
+
+%button {
+  border: 0;
+  border-radius: 0;
+  background-color: var.$accent;
+  color: var.$text-light;
+  font-family: var.$font;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  transition-property: background-color, box-shadow, color;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in;
+
+  &:hover {
+    box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+  }
+
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: color.scale(var.$accent, $lightness: -10%);
+    text-decoration: none;
+  }
+
+  &:visited {
+    color: var.$text-light;
+  }
+}
+
+%button-outline {
+  @extend %button;
+  background-color: var.$bg-main;
+  border: 2px solid var.$accent;
+  color: var.$accent;
+
+  &:hover {
+    border-color: var.$accent;
+    background-color: var.$accent;
+    color: var.$text-light;
+  }
+
+  &:active {
+    background-color: color.scale(var.$accent, $lightness: -10%);
+    color: var.$text-light;
+  }
+}
+
+.loadmore {
+	@extend %button-outline;
+  font-size: 2rem;
+  line-height: 1;
+  padding: 1rem 3rem;
+}
+
+.project__button {
+	@extend %button;
+  align-self: start;
+
+  @media screen and (max-width: 480px) {
+    align-self: stretch;
+		text-align: center;
+  }
+}
+
+.feedback__button {
+  @extend %button;
+  display: inline-block;
+}

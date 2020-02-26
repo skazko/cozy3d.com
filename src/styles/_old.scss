@@ -1673,17 +1673,6 @@ object {
 .tall {
 	order: 1;
 }
-.order-button {
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    padding: 0.5rem;
-    border: 2px solid #f47521;
-    background-color: #ffe8d9;
-    max-width: 320px;
-    margin: 0 auto;
-    margin-bottom: 1rem;
-}
 
 .project-right-column .entry-content.in-archive > p {
     display: none;
@@ -2149,32 +2138,7 @@ body.page-template-portfolio {
 	flex-direction: column;
 }
 
-.project__button {
-	margin-top: 1rem;
-	padding: 0.5rem 1.5rem;
-	background-color: #f47521;
-	color: #ffffff;
-	font-size: 1.5rem;
-	align-self: start;
-}
 
-.project__button:hover, .project__button:focus {
-	text-decoration: none;
-}				
-
-.project__button:hover {
-	-moz-box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.2);
-	-webkit-box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.2);
-	box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.2);
-}
-
-.project__button:active {
-	background-color: #d75c0b;
-}
-
-.project__button:visited {
-	color: #ffffff;
-}
 
 .project__image {
 	width: 100%;
@@ -2277,6 +2241,10 @@ body.page-template-portfolio {
 		left: auto;
 		bottom: auto;
 		padding: 0;
+
+		& span {
+			margin-bottom: 1rem;
+		}
 	}
 }
 
@@ -2314,11 +2282,6 @@ body.page-template-portfolio {
 	.portfolio__item {
 		margin-bottom: 3rem;
 	}
-
-	.project__button {
-		align-self: stretch;
-		text-align: center;
-	}
 }
 
 @media screen and (max-width: 420px) {
@@ -2349,10 +2312,6 @@ body.page-template-portfolio {
 /* End of basic styles for portfolio page
 TODO: add vendor perfixes */
 
-/* ========================== */
-/* Styles for loadmore button */
-/* ========================== */
-
 
 .portfolio__loadmore {
 	margin-bottom: 1rem;
@@ -2360,25 +2319,6 @@ TODO: add vendor perfixes */
 	justify-content: center;
 }
 
-
-.loadmore {
-	background-color: transparent;
-	border: 2px solid #f47521;
-	border-radius: 0; 
-	font-size: 2rem;
-	color: #f47521;
-	padding: 1rem 3rem;
-}
-
-.loadmore:hover {
-	border: 2px solid #f47521;
-	cursor: pointer;
-	-moz-box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.2);
-	-webkit-box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.2);
-	box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.2);
-}
-
-.loadmore:active {
-	background-color: #f47521;
-	color: #ffffff;
+.feedback {
+	text-align: center;
 }

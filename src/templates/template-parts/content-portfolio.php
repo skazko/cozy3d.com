@@ -14,9 +14,8 @@
       )) ?> 
     </a>
     <p class="project__excerpt">
-      <?php echo get_the_excerpt(); ?>
+      <span><?php echo get_the_excerpt(); ?></span>
       <a href="<?php the_permalink(); ?>" class="project__button">Смотреть</a>
     </p>
-    
   </article><!-- #post-<?php the_ID(); ?> -->
 </li>

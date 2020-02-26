@@ -59,9 +59,26 @@
 				) );
 				?>
 			</div><!-- .entry-content -->
+			<div class="feedback">
+				<a 
+					target="_blank"
+					id="order-button" 
+					class="feedback__button" 
+					href="mailto:<?php 
+						echo esc_html( get_option( 'email', '' ) );
+					?>?subject=Письмо%20со%20страницы%20проекта%20<?php 
+						the_title(); 
+					?>%20(<?php 
+						the_id(); 
+					?>)&amp;body=Меня%20заинтересовал%20ваш%20проект%20<?php 
+						the_title(); 
+					?>">
+						Напишите мне письмо
+				</a>
+			</div>
 		</div>
 	</div>
 	
-<a id="order-button" class="order-button" href="mailto:<?php echo esc_html( get_option( 'email', '' ) );?>?subject=Письмо%20со%20страницы%20проекта%20<?php the_title(); ?>%20(<?php the_id(); ?>)&amp;body=Меня%20заинтересовал%20ваш%20проект%20<?php the_title(); ?>">Заказать такой интерьер</a>
+
 	
 </article><!-- #post-<?php the_ID(); ?> -->
