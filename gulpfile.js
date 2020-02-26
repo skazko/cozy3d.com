@@ -48,7 +48,7 @@ function serve() {
   browserSync.init({
     proxy: 'cozy.loc',
     files: dir.build + '/**/*',
-    open: false,
+    open: true,
     notify: false,
     ghostMode: false,
     ui: {
