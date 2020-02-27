@@ -646,92 +646,20 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation {
-	
-	display: flex;
-	position: relative;
-	align-self: center;
-	
-}
-
-.main-navigation ul {
-	display: none;
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-}
-
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 100%;
-	left: -999em;
-	z-index: 99999;
-}
-
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
-}
-
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-	left: 100%;
-}
-
-.main-navigation ul ul a {
-	width: 200px;
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	left: auto;
-}
-
-.main-navigation li {
-	float: left;
-	position: relative;
-}
-
-.main-navigation a {
-	display: block;
-	text-decoration: none;
-}
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: flex;
-	flex-direction: column;
-    width: calc(100vw - 5rem);
-}
-
-.main-navigation.toggled a {
-	text-align: center;
-	padding: 1.4rem 0;
-}
-
-@media screen and (max-width: 420px) {
-	.main-navigation.toggled ul {
-		display: flex;
-		flex-direction: column;
-		width: calc(100vw - 2rem);
-	}
-}
-
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-
-}
+// below styles are using
 
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
 .post-navigation {
 	margin: 0 0 1.5em;
 	overflow: hidden;
+}
+
+.site-main .post-navigation {
+	position: sticky;
+	bottom: 2rem;
+	width: 100%;
+	padding: 0 2rem;
 }
 
 .comment-navigation .nav-previous,
@@ -866,31 +794,6 @@ a:hover, a:active {
 	margin: 0 0 1.5em;
 }
 
-/*--------------------------------------------------------------
-## Comments
---------------------------------------------------------------*/
-.comment-content a {
-	word-wrap: break-word;
-}
-
-.bypostauthor {
-	display: block;
-}
-
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .posts-navigation,
-.infinite-scroll.neverending .site-footer {
-	/* Theme Footer (when set to scrolling) */
-	display: none;
-}
-
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
-.infinity-end.neverending .site-footer {
-	display: block;
-}
 
 /*--------------------------------------------------------------
 # Media
@@ -1113,12 +1016,7 @@ object {
 	color: inherit;
 }
 
-.site-main .post-navigation {
-	position: sticky;
-    bottom: 2rem;
-    width: 100%;
-    padding: 0 2rem;
-}
+
 
 .nav-links a {
 	display: inline-block;
@@ -1362,15 +1260,6 @@ object {
 
 @media screen and (min-width: 680px) {
 
-	.main-navigation ul {
-		display: flex;
-	}
-
-	.main-navigation {
-		margin-left: auto;
-		margin-right: 1.5rem;
-	}
-
 	.social-links {
 		display: flex;
 		position: relative;
@@ -1380,24 +1269,6 @@ object {
 	.wa-button-mob {
 		display: none;
 	}
-}
-
-.main-navigation ul {
-	
-	justify-content: flex-end;
-	align-items: stretch;
-}
-.main-navigation a {
-	color: inherit;
-	padding: 0.5rem;
-	text-transform: uppercase;
-}
-
-.main-navigation a:hover,
-.main-navigation a:focus,
-.main-navigation a:active {
-	color: #000000;
-	text-decoration: underline;
 }
 
 .social-links a {
