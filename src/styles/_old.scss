@@ -793,27 +793,7 @@ a:hover, a:active {
 	outline: 0;
 }
 
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-.alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
-}
 
-.alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
-}
-
-.aligncenter {
-	clear: both;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
 
 /*--------------------------------------------------------------
 # Clearings
@@ -1360,72 +1340,7 @@ object {
 	}
 }
 
-#gamburger {
-	display: none;
-}
 
-.gamburger-inner {
-	position: relative;
-	width: 50px;
-	height: 25px;
-	display: inline-block;
-	cursor: pointer;
-	transition: all .5s;
-	text-align: left;
-	
-    align-self: center;
-}
-
-.gamburger-inner div,
-.gamburger-inner div:before,
-.gamburger-inner div:after {
-	background: #603a28;
-	position: absolute;
-	height: 5px;
-	width: 50px;
-	border-radius: 4px;
-	transition: all .5s;
-}
-
-.gamburger-inner div:first-child {
-	top: 0px;
-}
-.gamburger-inner div:nth-child(2) {
-	top: 10px;
-}
-.gamburger-inner div:nth-child(3) {
-	top: 20px;
-}
-
-#gamburger + label div:first-child {
-	transition: top .15s .15s, -webkit-transform .15s;
-	transition: top .15s .15s, transform .15s;
-	transition: top .15s .15s, transform .15s, -webkit-transform .15s;
-  }
-#gamburger + label div:nth-child(2),
-#gamburger + label div:nth-child(3) {
-	transition: top .15s .15s, -webkit-transform .15s;
-	transition: top .15s .15s, transform .15s;
-	transition: top .15s .15s, transform .15s, -webkit-transform .15s;
-}
-
-#gamburger:checked + label div:first-child {
-	top: 10px;
-	-webkit-transform: rotate(45deg);
-			transform: rotate(45deg);
-	transition: top .15s, -webkit-transform .15s .15s;
-	transition: top .15s, transform .15s .15s;
-	transition: top .15s, transform .15s .15s, -webkit-transform .15s .15s;
-}
-#gamburger:checked + label div:nth-child(2),
-#gamburger:checked + label div:nth-child(3) {
-	top: 10px;
-	-webkit-transform: rotate(-45deg);
-			transform: rotate(-45deg);
-	transition: top .15s, -webkit-transform .15s .15s;
-	transition: top .15s, transform .15s .15s;
-	transition: top .15s, transform .15s .15s, -webkit-transform .15s .15s;
-}
 
 .social-links {
 	display: none;
@@ -1446,9 +1361,6 @@ object {
 }
 
 @media screen and (min-width: 680px) {
-	.gamburger-inner {
-		display: none;
-	}
 
 	.main-navigation ul {
 		display: flex;
