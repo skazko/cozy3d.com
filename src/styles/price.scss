@@ -1,0 +1,115 @@
+// container used only on price page 
+
+.container {
+	width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+	.container {
+		max-width: 540px;
+	}
+}
+
+@media (min-width: 768px) {
+	.container {
+		max-width: 720px;
+	}	
+}
+
+@media (min-width: 992px) {
+	.container {
+		max-width: 960px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		max-width: 1140px;
+	}
+}
+
+.card {
+	width: 220px;
+	padding: 10px;
+	text-align: center;
+  }
+  .card .card__value {
+	position: relative;
+	color: orangered;
+  }
+  .card .card__value .value-prefix {
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	left: 0;
+  }
+  .card .card__value .value {
+	font-size: 80px;
+	font-weight: 700;
+	line-height: 1;
+  }
+  .card .card__postfix {
+	margin-bottom: 1rem;
+	margin-top: 0;
+	color: orangered;
+	font-weight: 700;
+	font-size: 24.2424242424px;
+	border-bottom: 1px solid;
+	padding-bottom: 0.5rem;
+	height: 40px;
+  }
+  .card .card__description {
+	font-weight: 700;
+	text-align: left;
+  }
+  
+  .cards-group {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 2rem;
+  }
+  .cards-group .card {
+	flex: 0 0 220px;
+	margin-right: 2rem;
+	margin-bottom: 2rem;
+  }
+  .cards-group .card:last-child {
+	margin-right: 0;
+	margin-bottom: 0;
+  }
+
+  .price-content {
+
+	list-style: none;
+    max-width: 780px;
+	margin: 0;
+	padding: 0;
+	margin: 0 auto 2rem;
+	box-shadow: 0 2px 5px -2px rgba(10, 10, 10, 0.2), -2px 0 10px -5px rgba(10, 10, 10, 0.2);
+    border-radius: 0.25rem;
+
+  }
+
+
+  .price-content li {
+	  margin:0;
+	  padding: 0.5rem 1rem;
+	  border: 1px solid lightgray;
+	  margin-bottom: -1px;
+  }
+
+  .price-content li:first-child {
+	border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+  }
+
+  .price-content li:last-child {
+	margin-bottom: 0;
+    border-bottom-right-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+  }
