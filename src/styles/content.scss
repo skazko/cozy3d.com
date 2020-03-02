@@ -37,7 +37,9 @@
 }
 
 .custom-logo-link {
-	display: inline-block;
+	width: 140px;
+	display: flex;
+	align-items: center;
 }
 
 .wp-caption {

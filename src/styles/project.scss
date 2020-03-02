@@ -1,9 +1,4 @@
-@mixin backdrop-blur($blur, $color) {
-  @supports (backdrop-filter: none) {
-    background-color: $color;
-    backdrop-filter: blur($blur);
-  }
-}
+@use './mixins/backdrop.scss';
 
 .project {
 	margin: 0;
@@ -40,7 +35,7 @@
     background-color: rgba(255, 232, 217, 0.85);
     border-left: 10px solid #f47521;
     padding: 0.125rem 1rem;
-    @include backdrop-blur(5px, rgba(255, 232, 217, 0.5));
+    @include backdrop.blur(5px, rgba(255, 232, 217, 0.5));
 
     @media (max-width: 1400px) {
       font-size: 2.5rem;
@@ -95,7 +90,7 @@
     transition: transform 0.8s ease-in-out;
     display: flex;
     flex-direction: column;
-    @include backdrop-blur(5px, rgba(255, 255, 255, 0.6));
+    @include backdrop.blur(5px, rgba(255, 255, 255, 0.6));
 
     @media (max-width: 1400px) {
       font-size: 1.125rem;

@@ -4,7 +4,7 @@
 
 .social-links {
   display: none;
-  @media (min-width: 680px) {
+  @media (min-width: 740px) {
     display: flex;
 		position: relative;
 		align-self: center;
@@ -23,27 +23,5 @@
       text-decoration: none;
       opacity: 1;
     }
-  }
-}
-
-.wa-button-mob {
-	display: block;
-	align-self: center;
-	margin-right: 1.5rem;
-  margin-left: auto;
-
-  @media (min-width: 680px) {
-    display: none;
-  }
-
-  a {
-    display: block;
-    color: #603a28;
-    text-decoration: none;
-    font-size: 2rem;
-  }
-
-  img {
-    vertical-align: middle;
   }
 }
