@@ -31,7 +31,7 @@ get_header();
 					endwhile;?>
 				</ul>
 				<?php the_posts_navigation(); ?>
-			</section>
+			</section><!-- .portfolio -->
 			<?php
 
 		else :
