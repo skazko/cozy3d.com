@@ -36,7 +36,10 @@
 		margin: 0 auto;
 		margin-bottom: 2rem;
 		font-size: 1.25rem;
-		@media (max-width: 420px) {
+		@media (max-width: 1400px) {
+			font-size: 1.125rem;
+		}
+		@media (max-width: 640px) {
 			font-size: 1rem;
 		}
 	}
