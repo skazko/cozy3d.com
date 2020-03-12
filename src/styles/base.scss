@@ -1,4 +1,5 @@
 @use 'var';
+@use './placeholders/title.scss';
 
 /*!
 Theme Name: KateSlava
@@ -16,7 +17,8 @@ Text Domain: kateslava
 
 html {
   -webkit-text-size-adjust: 100%;
-  box-sizing: border-box;
+	box-sizing: border-box;
+	height: 100%;
 }
 
 body {
@@ -27,7 +29,7 @@ body {
   -webkit-tap-highlight-color: transparent;
   background: var.$bg-main;
 	min-width: 320px;
-	min-height: 100%
+	height: 100%
 }
 
 a {
@@ -244,4 +246,26 @@ object {
 	display: table;
 	table-layout: fixed;
 	clear: both;
+}
+
+.site {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		height: 100%;
+	}
+	&[data-mobile-menu-is-opened] {
+		height: 100%;
+		display: block;
+		overflow: hidden;
+	}
+}
+
+.title {
+	@extend %title;
+}
+
+.feedback {
+	text-align: center;
 }
