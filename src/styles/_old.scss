@@ -12,11 +12,6 @@
 	margin-bottom: 1rem;
 }
 
-
-.site {
-	min-height: 100%;
-}
-
 .flex-container {
 	display: flex;
 	flex-direction: row;
@@ -182,64 +177,12 @@
 	margin-bottom: 0;
 }
 
-.in-archive {
-	display: flex;
-	flex-wrap: wrap;
-}
-.in-archive figure {
-	flex: 0 1 33.33%;
-}
-
-.contacts-header {
-	font-size: 2.5rem;
-	text-align: left;
-}
-
-.contacts-row i {
-	font-size: 2.5rem;
-	margin-right: 2rem;
-}
-
-.contacts-row a {
-	font-size: 1.5rem;
-
-}
-
-@media screen and (max-width: 680px) {
-
-	.contacts-header {
-		font-size: 1.5rem;
-	}
-
-	.contacts-row i {
-		font-size: 1.5rem;
-	}
-
-	.contacts-row a {
-		font-size: 1rem;
-	}
-
-
-}
 .wp-block-cover.contact-cover .wp-block-cover__inner-container {
     color: #404040;
 }
 
 .wp-block-cover.contact-cover {
 	min-height: 100vh;
-}
-
-.contacts-row {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-}
-
-.contacts-row img {
-    margin-right: 16px;
-}
-.contacts-row:not(:last-child) {
-	margin-bottom: 1em;
 }
 
 .portfolio-row {
@@ -267,12 +210,4 @@
 	.portfolio-row {
 		flex-direction: column;
 	}
-}
-
-.tall {
-	order: 1;
-}
-
-.feedback {
-	text-align: center;
 }

@@ -1,0 +1,40 @@
+@use './placeholders/layout.scss';
+
+.contacts-page {
+  @extend %container;
+  background-image: url('https://cozy3d.com/wp-content/uploads/2019/07/contacts-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-grow: 1;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 0.75rem;
+    }
+
+    img {
+      margin-right: 16px;
+    }
+
+    a {
+      font-size: 1.5rem;
+    }
+  }
+}
