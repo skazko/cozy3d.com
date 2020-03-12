@@ -11,7 +11,7 @@ get_header();
 <?php
 while ( have_posts() ) {
   the_post();
-  the_title( '<h1 class="entry-title" style="text-align:center">', '</h1>' ); ?>
+  the_title( '<h1 class="title" style="text-align:center">', '</h1>' ); ?>
   <div class="cards-group">
     <div class="card">
       <div class="card__value">
