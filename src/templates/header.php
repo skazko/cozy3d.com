@@ -79,19 +79,19 @@
 
 		<div class="social-links">
 			<?php if (esc_html( get_option('phone') )) { ?>
-				<a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', esc_html( get_option( 'phone', '' ) ));?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/wa.svg" alt="whatsapp"></a>	
+				<a target="_blank" href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', esc_html( get_option( 'phone', '' ) ));?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/wa.svg" alt="whatsapp"></a>	
 			<?php }
 			if (esc_html( get_option('email') )) { ?>
-				<a href="mailto:<?php echo esc_html( get_option( 'email', '' ) );?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/envelope.svg" alt="Письмо"></a>
+				<a target="_blank" href="mailto:<?php echo esc_html( get_option( 'email', '' ) );?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/envelope.svg" alt="Письмо"></a>
 			<?php }
 			if (esc_html( get_option('facebook') )) {	?>
-				<a href="https://facebook.com/<?php echo esc_html( get_option( 'facebook', '' ) );?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/fb.svg" alt="Facebook"></a>	
+				<a target="_blank" href="https://facebook.com/<?php echo esc_html( get_option( 'facebook', '' ) );?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/fb.svg" alt="Facebook"></a>	
 			<?php	}
 			if (esc_html( get_option('instagram') )) { ?>
-				<a href="https://instagram.com/<?php echo esc_html( get_option( 'instagram', '' ) );?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/ig.svg" alt="Instagram"></a>
+				<a target="_blank" href="https://instagram.com/<?php echo esc_html( get_option( 'instagram', '' ) );?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/ig.svg" alt="Instagram"></a>
 			<?php }
 			if (esc_html( get_option('vk') )) {	?>
-				<a href="https://vk.com/<?php echo esc_html( get_option( 'vk', '' ) );?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/vk.svg" alt="Вконтакте"></a>
+				<a target="_blank" href="https://vk.com/<?php echo esc_html( get_option( 'vk', '' ) );?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/vk.svg" alt="Вконтакте"></a>
 			<?php } ?>
 		</div>
 		
