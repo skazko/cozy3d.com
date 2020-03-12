@@ -94,7 +94,13 @@
 				the_custom_logo();
 			endif;
 			?>
-			<p class="site-footer__copyright">&copy; <?php bloginfo( $name ); ?>, 2019</p>
+			<p class="site-footer__copyright">
+				&copy; 
+				<?php
+					bloginfo( $name );
+					echo ", " . date("Y"); 
+				?>
+			</p>
 
 		</div>
 		
