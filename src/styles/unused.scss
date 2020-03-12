@@ -68,3 +68,109 @@
 }
 
 
+.page-header {
+	padding: 0 2rem;
+	max-width: calc(1320px + 5rem);
+	margin: 0 auto;
+} 
+
+.page-title {
+	margin-bottom: 1rem;
+}
+/**********************************************/
+/* for about page, delete after page reviewing */
+/**********************************************/ 
+
+.wp-block-media-text {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.wp-block-media-text__media {
+	flex: 1 1 50%;
+}
+
+.wp-block-media-text .wp-block-media-text__content {
+    padding: 0 2rem;
+	flex: 1 0 50%;
+}
+
+.text-block-on-page {
+		width: 60%;
+		margin-left: 5rem;
+		padding: 2rem;
+		box-shadow: 0 0 30px -15px #404040;
+		border-left: 10px solid #F4751D;
+		line-height: 1.8;
+}
+
+@media screen and (max-width: 800px) {
+	.wp-block-media-text {
+		flex-direction: column;
+	}
+
+	.wp-block-media-text__media {
+		flex: 1 0 100%;
+	}
+	
+	.wp-block-media-text .wp-block-media-text__content {
+		flex: 1 0 100%;
+		padding: 0 0.5rem;
+	}
+	.text-block-on-page {
+		padding: 1rem;
+		width: calc(100% - 2rem);
+		margin: 1rem;
+	}
+
+	.page-content {
+		padding: 0;
+	}
+
+	.page-content .entry-header {
+		padding: 0 0.5rem;
+
+	}
+}
+
+.wp-block-cover, .wp-block-cover-image {
+	margin-bottom: 0;
+}
+
+.wp-block-cover.contact-cover .wp-block-cover__inner-container {
+    color: #404040;
+}
+
+.wp-block-cover.contact-cover {
+	min-height: 100vh;
+}
+
+/*******************************************/
+
+.portfolio-row {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 2rem;
+}
+
+.project-row:last-child .portfolio-row {
+	margin-bottom: 0;
+}
+
+.portfolio-row .project-inner {
+	flex: 1 1 33.33%;
+	min-width: 33.33%;
+}
+
+@media screen and (max-width: 420px) {
+	.portfolio-row .project-inner {
+		flex: 1 1 100%;
+		min-width: 100%;
+		height: 33.33vh;
+	}
+
+	.portfolio-row {
+		flex-direction: column;
+	}
+}

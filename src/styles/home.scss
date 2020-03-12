@@ -1,0 +1,91 @@
+// Old styles:
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.project-inner {
+	display: block;
+	position: relative;
+	color: #000;
+	overflow: hidden;
+	height: 50vh;
+	flex: 1 0 33.33%;
+	min-width: 320px;
+}
+
+.site-welcome {
+	height: 50vh;
+	flex: 1 0 33.33%;
+	min-width: 320px;
+	padding: 1rem;
+	background-color: #ffe8d9;
+	border-left: 10px solid #f47521;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.site-welcome p {
+	margin: 0;
+	margin-bottom: 0.5rem;
+	text-align: center;
+}
+.site-welcome p:first-child {
+	font-weight: 700;
+}
+
+.project-inner div{
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.project-inner .descr {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #f2f3f4;
+	opacity: 0;
+	transition: 0.3s;
+}
+
+.project-inner p {
+	font-size: 1.4rem;
+	opacity: 0;
+	transition: 0.3s;
+	color: #000;
+	padding: 1rem;
+	text-align: center;
+}
+
+.project-inner:hover p,
+.project-inner:active p,
+.project-inner:focus p {
+	opacity: 1;
+	color: #000;
+}
+
+.project-inner:hover .descr,
+.project-inner:active .descr,
+.project-inner:focus .descr {
+	opacity: 0.5;
+}
+
+.project-inner:hover .img,
+.project-inner:active .img,
+.project-inner:focus .img {
+	transform: scale(1.5);
+	transition: transform 23s;
+}
