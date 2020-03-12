@@ -121,16 +121,16 @@ add_action( 'widgets_init', 'kateslava_widgets_init' );
  * Enqueue scripts and styles.
  */
 function kateslava_scripts() {
-	wp_enqueue_style( 'kateslava-style', get_stylesheet_uri(), array(), '20200226' );
+	wp_enqueue_style( 'kateslava-style', get_stylesheet_uri(), array(), '20200312' );
 	
 	wp_enqueue_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic' );
 
-	wp_enqueue_script( 'kateslava-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151216', true );
+	wp_enqueue_script( 'kateslava-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20200312', true );
 
 	wp_enqueue_script( 'kateslava-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if (is_page_template('portfolio.php')) {
-		wp_enqueue_script( 'kateslava-ajax', get_template_directory_uri() . '/js/ajax.js', array('jquery'), '20200221', true );
+		wp_enqueue_script( 'kateslava-ajax', get_template_directory_uri() . '/js/ajax.js', array('jquery'), '20200312', true );
 		wp_localize_script('kateslava-ajax', 'ajaxLoad', array(
 		'ajaxurl' => admin_url('admin-ajax.php')
 	));
