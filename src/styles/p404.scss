@@ -1,0 +1,14 @@
+@use './placeholders/layout.scss';
+@use './var.scss';
+
+.p404 {
+  @extend %container;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  h1 {
+    text-align: center;
+  }
+}
