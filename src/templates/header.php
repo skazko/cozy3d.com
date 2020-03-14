@@ -21,9 +21,15 @@
 		<?php esc_html_e( 'Skip to content', 'kateslava' ); ?>
 	</a>
 	<header id="masthead" class="site-header">
-		<?php	if ( has_custom_logo()) : ?>
-			<h1 class="screen-reader-text"><?php bloginfo( 'name' ); ?></h1>				
-			<?php the_custom_logo();
+		<?php	if ( has_custom_logo()) : 
+			if ( is_front_page() && is_home() ) { ?>
+				<h1 class="screen-reader-text"><?php 
+					bloginfo( 'name' ); 
+					echo ' - ';
+					bloginfo( 'description' );
+				?></h1>	
+			<?php }			
+			the_custom_logo();
 		else: 
 			if ( is_front_page() && is_home() ) : ?>
 				<h1 class="site-title">
