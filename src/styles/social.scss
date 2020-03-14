@@ -5,13 +5,20 @@
 .social-links {
   display: none;
   @media (min-width: 740px) {
+    margin: 0 0 0 1rem;
+    padding: 0;
+    list-style: none;
     display: flex;
 		position: relative;
-		align-self: center;
+		align-items: center;
+  }
+
+  li {
+    display: flex;
   }
 
   a {
-    display: block;
+    display: flex;
     color: inherit;
     text-decoration: none;
     font-size: 1.3rem;

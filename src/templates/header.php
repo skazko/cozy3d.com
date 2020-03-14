@@ -77,23 +77,43 @@
 			) ); ?>
 		</nav>
 
-		<div class="social-links">
+		<ul class="social-links">
 			<?php if (esc_html( get_option('phone') )) { ?>
-				<a target="_blank" href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', esc_html( get_option( 'phone', '' ) ));?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/wa.svg" alt="whatsapp"></a>	
+				<li>
+					<a target="_blank" href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', esc_html( get_option( 'phone', '' ) ));?>">
+						<img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/wa.svg" alt="whatsapp">
+					</a>	
+				</li>
 			<?php }
 			if (esc_html( get_option('email') )) { ?>
-				<a target="_blank" href="mailto:<?php echo esc_html( get_option( 'email', '' ) );?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/envelope.svg" alt="Письмо"></a>
+				<li>
+					<a target="_blank" href="mailto:<?php echo esc_html( get_option( 'email', '' ) );?>">
+						<img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/envelope.svg" alt="Письмо">
+					</a>
+				</li>
 			<?php }
 			if (esc_html( get_option('facebook') )) {	?>
-				<a target="_blank" href="https://facebook.com/<?php echo esc_html( get_option( 'facebook', '' ) );?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/fb.svg" alt="Facebook"></a>	
+				<li>
+					<a target="_blank" href="https://facebook.com/<?php echo esc_html( get_option( 'facebook', '' ) );?>">
+						<img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/fb.svg" alt="Facebook">
+					</a>	
+				</li>
 			<?php	}
 			if (esc_html( get_option('instagram') )) { ?>
-				<a target="_blank" href="https://instagram.com/<?php echo esc_html( get_option( 'instagram', '' ) );?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/ig.svg" alt="Instagram"></a>
+				<li>
+					<a target="_blank" href="https://instagram.com/<?php echo esc_html( get_option( 'instagram', '' ) );?>">
+						<img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/ig.svg" alt="Instagram">
+					</a>
+				</li>
 			<?php }
 			if (esc_html( get_option('vk') )) {	?>
-				<a target="_blank" href="https://vk.com/<?php echo esc_html( get_option( 'vk', '' ) );?>"><img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/vk.svg" alt="Вконтакте"></a>
+				<li>
+					<a target="_blank" href="https://vk.com/<?php echo esc_html( get_option( 'vk', '' ) );?>">
+						<img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/vk.svg" alt="Вконтакте">
+					</a>
+				</li>	
 			<?php } ?>
-		</div>
+			</ul>
 		
 	</header><!-- #masthead -->
 	
