@@ -121,7 +121,7 @@ add_action( 'widgets_init', 'kateslava_widgets_init' );
  * Enqueue scripts and styles.
  */
 function kateslava_scripts() {
-	wp_enqueue_style( 'kateslava-style', get_stylesheet_uri(), array(), '20200314' );
+	wp_enqueue_style( 'kateslava-style', get_stylesheet_uri(), array(), '20200315' );
 	
 	wp_enqueue_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic' );
 
