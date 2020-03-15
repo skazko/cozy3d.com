@@ -28,7 +28,13 @@
 		menu.classList.add('main-navigation__menu');
 	}
 
-	site = document.querySelector('.site') || document.body;
+	site = document.querySelector('.site');
+
+	const wrappers = [document.body, document.documentElement];
+
+	if (site) {
+		wrappers.push(site);
+	}
 
 	function closeMenu(animation) {
 		if (animation) {
@@ -41,7 +47,9 @@
 		menu.classList.add('main-navigation__menu_animate');
 		animation = true;
 		menu.classList.remove('main-navigation__menu_open');
-		delete site.dataset.mobileMenuIsOpened;
+		wrappers.forEach(function(wrapper) {
+			delete wrapper.dataset.mobileMenuIsOpened;
+		});
 
 		setTimeout(() => {
 			menu.classList.remove('main-navigation__menu_animate');
@@ -61,7 +69,9 @@
 		menu.classList.add('main-navigation__menu_animate');
 		animation = true;
 		menu.classList.add('main-navigation__menu_open');
-		site.dataset.mobileMenuIsOpened = true;
+		wrappers.forEach(function(wrapper) {
+			wrapper.dataset.mobileMenuIsOpened = true;
+		});
 
 		setTimeout(() => {
 			menu.classList.remove('main-navigation__menu_animate');
@@ -89,7 +99,7 @@
 	// button hided
 	const mobile = window.matchMedia(buttonMediaQuery);
 	mobile.addListener(mql => {
-		if (site.dataset.mobileMenuIsOpened && mql.matches) {
+		if (document.body.dataset.mobileMenuIsOpened && mql.matches) {
 			closeMenu(animation);
 		}
 	});

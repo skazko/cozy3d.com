@@ -128,16 +128,21 @@
 	}
 }
 
-
-//styles for body
+//prevent scrolling when menu is opened
+html[data-mobile-menu-is-opened] {
+	height: 100%;
+}
 
 body[data-mobile-menu-is-opened] {
-	height: 100vh;
+	height: 100%;
 	overflow: hidden;
-	@media (min-width: 640px) {
-		height: auto;		
-		overflow: auto;
-	}
+}
+
+.site[data-mobile-menu-is-opened] {
+	height: 100%;
+	display: block;
+	position: relative;
+	overflow: hidden;
 }
 
 .current-menu-item {

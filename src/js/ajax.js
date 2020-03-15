@@ -1,9 +1,4 @@
-jQuery(document).ready(function($) {
-	const loadmore = document.querySelector('.loadmore');
-	if (loadmore) {
-		loadmore.addEventListener('mousedown', e => e.preventDefault());
-	}
-	
+jQuery(document).ready(function($) {	
 	$('.loadmore').click(function(){
 		$(this).text('Загружаю...');
 		var data = {
