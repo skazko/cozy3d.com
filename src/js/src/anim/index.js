@@ -22,12 +22,13 @@ function startIntersectionObserver({ items, createHandler, handlers, initial }) 
 
   function callback(entries, observer) {
     entries.forEach(entry => {
+      console.log(entry)
       if (!entry.target.dataset.position) {
         initItem(entry.target, initial, handlers, createHandler);
-        console.log(entry)
-        if (entry.isIntersecting) {
+        
+        // if (entry.isIntersecting) {
           handlers[entry.target.dataset.position]();
-        }
+        // }
       } 
       
       if (entry.isIntersecting) {
@@ -57,8 +58,10 @@ export function anim(settings) {
   const breakpointMQ = window.matchMedia(breakpoint);
 
   let createHandler = breakpointMQ.matches ? desktopHandler : mobileHandler;
-
-  let intersectionObserver = startIntersectionObserver({ createHandler, items, handlers, initial });
+  let intersectionObserver
+  if (createHandler) {
+    intersectionObserver = startIntersectionObserver({ createHandler, items, handlers, initial });
+  } 
 
   breakpointMQ.addListener(function(mql) {
     for (let i = 0; i < items.length; i++) {
