@@ -1,50 +1,49 @@
-import {anim} from './src/anim/index';
+import { scroller } from './src/anim/index';
 
 (function() {
-  function mobileHandler(item) {
-    const y = item.getBoundingClientRect().top + window.pageYOffset;
-    const height = document.documentElement.clientHeight;
-    const ymin = y - height;
-    const ymax = y + item.offsetHeight;
-    const gradient = height * 0.2;
-    const scale = {min: 0.8, max: 1}
-
-    return function() {
-      window.requestAnimationFrame(function() {
-        let percent;
-        const wy = window.pageYOffset;
-
-        if (wy < ymin || wy > ymax) {
-          percent = 0;
-        } else if (wy > ymin + gradient && wy < ymax - gradient) {
-          percent = 1;
-        } else if (wy > ymin && wy < ymin + gradient) {
-          percent = (wy - ymin) / gradient;
-        } else if (wy > ymax - gradient && wy < ymax) {
-          percent = (ymax - wy) / gradient;
-        }
-        const res = percent * (scale.max - scale.min) + scale.min;
-        console.log(res)
-        item.style.transform = `scale(${res})`;
-      })
-    }
-  }
-
-  function desktopHandler(item) {
+    function createHandler(item) {
+    const box = item.getBoundingClientRect();
+    const gap = box.height * 0.05; // 5% задержка
+    const top = box.top + pageYOffset;
+    const bottom = box.bottom + pageYOffset;
+    const H = document.documentElement.clientHeight;
+    const startY = top - H + gap;
+    const endY = bottom - gap;
+    const length = endY - startY;
     const title = item.querySelector('.project__title');
+    const even = item.dataset.position % 2 === 0;
+
+    function translateTitle(y) {
+      const dymax = 200;
+      const dymin = -100;
+      const dxmax = even ? 50 : -50;
+      let dy, dx;
+      if (y < startY) {
+        dy = dymin;
+        dx = 0;
+      } else if (y > endY) {
+        dy = dymax;
+        dx = 0;
+      } else {
+        const change = (y - startY) / length;
+        dy = change * (dymax - dymin) + dymin;
+        dx = dxmax * Math.sin(change * Math.PI);
+      }
+
+      return `translate(${dx}px, ${dy}px)`
+    }
     return function() {
       window.requestAnimationFrame(function() {
-        const dy = (window.pageYOffset - item.offsetTop) * 0.25;
-        title.style.transform = `translateY(${dy}px)`;
+        title.style.transform = translateTitle(pageYOffset);
       })
     }
   }
 
-  anim({
+  scroller.init({
     breakpoint: '(min-width: 1024px)',
-    itemsClassName: 'portfolio__item',
-    listClassName: 'portfolio__list',
-    mobileHandler,
-    desktopHandler
-  });
+    itemClassName: 'portfolio__item',
+    containerClassName: 'portfolio__list',
+    createHandler
+  })
+
 })();

@@ -134,7 +134,7 @@ function kateslava_scripts() {
 		wp_localize_script('kateslava-ajax', 'ajaxLoad', array(
 			'ajaxurl' => admin_url('admin-ajax.php')
 		));
-		wp_enqueue_script( 'kateslava-anim', get_template_directory_uri() . '/js/anim.js', array(), '20200315', true );
+		wp_enqueue_script( 'kateslava-anim', get_template_directory_uri() . '/js/anim.js', array(), '20200322', true );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
