@@ -1,7 +1,13 @@
 import { throttle } from './throttle';
 
 function _init(settings) {
-  const {breakpoint, itemClassName, containerClassName, createHandler, intersectionSettings} = settings;
+  const {
+    breakpoint, 
+    itemClassName, 
+    containerClassName, 
+    createHandler, 
+    intersectionSettings
+  } = settings;
   
   const defaultIntersectionSettings = {
     root: null,
@@ -34,6 +40,7 @@ function _init(settings) {
 
 export const scroller = {
   init(options) {
+    throttle('resize', 'optimizedResize');
     this.state = _init(options);
     this.recalc = this.recalc.bind(this);
     this.handleMediaQuery(this.state.mediaQuery);
@@ -46,7 +53,6 @@ export const scroller = {
     }
 
     this.state.isStarted = true;
-    throttle('resize', 'optimizedResize');
     this.initItems();
     this.createIntersectionObserver();
     this.startIntersectionObserver();
@@ -59,11 +65,12 @@ export const scroller = {
     if (!this.state.isStarted) {
       return;
     }
+
     window.removeEventListener('optimizedResize', this.recalc);
-    this.clearScrollHandlers();
-    this.clearSideEffects();
     this.state.intersectionObserver.disconnect();
     this.state.mutationObserver.disconnect();
+    this.clearScrollHandlers();
+    this.clearSideEffects();
     this.state.isStarted = false;
   },
 
@@ -110,15 +117,15 @@ export const scroller = {
     this.state.mutationObserver = new MutationObserver(mutations => {
       mutations.forEach(mutation => {
         mutation.addedNodes.forEach(node => {
-          const isNotInitedItem = Node.ELEMENT_NODE === node.nodeType 
+          const nodeIsNotInited = Node.ELEMENT_NODE === node.nodeType 
             && node.classList.contains(itemClassName)
             && !node.dataset.position;
 
-          if (isNotInitedItem) {
+          if (nodeIsNotInited) {
             this.initItem(node);
             intersectionObserver.observe(node);
 
-            function imageLoaded() {
+            function imagesLoaded() {
               count++;
               if (count >= images.length) {
                 this.recalc();
@@ -128,9 +135,8 @@ export const scroller = {
             let images = node.querySelectorAll('img');
             let count = 0;
             for (let i = 0; i < images.length; i++) {
-              images[i].addEventListener('load', imageLoaded.bind(this))
+              images[i].addEventListener('load', imagesLoaded.bind(this));
             }
-            
           }
         });
       });
