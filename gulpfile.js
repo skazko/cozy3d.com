@@ -35,8 +35,16 @@ function phpTask() {
 
 const images = {
   src: dir.src + 'images/**/*',
+  icons: dir.src + 'images/icons/*.svg',
   build: dir.build + 'img/'
 };
+
+function icons() {
+  return src(images.icons)
+    .pipe(newer(images.build))
+    .pipe(rename({ prefix: 'icon-', extname: '.svg.php' }))
+    .pipe(dest(images.build))
+}
 
 function imagesTask() {
   return src(images.src)
@@ -104,7 +112,7 @@ function reload(cb) {
 function watchTask() {
   watch(css.watch, cssTask);
   watch(php.src, series(phpTask, reload));
-  watch(images.src, series(imagesTask, reload));
+  watch(images.src, series(imagesTask, icons, reload));
   watch(js.watch, series(jsTask, reload));
 }
 
@@ -112,10 +120,11 @@ function clean() {
   return del([dir.build + '**', '!' + dir.build], {force: true})
 }
 
+exports.icons = icons;
 exports.php = phpTask;
 exports.img = imagesTask;
 exports.css = cssTask;
 exports.js = jsTask;
 exports.clean = clean;
-exports.build = series(clean, parallel(phpTask, imagesTask, cssTask, jsTask));
+exports.build = series(clean, parallel(icons, phpTask, imagesTask, cssTask, jsTask));
 exports.default = series(this.build, parallel(watchTask, serve));
