@@ -48,8 +48,8 @@
         }
       ?>
     </section>
-  </main><!-- #main -->
-</div><!-- #primary -->
+  </main>
+</div>
 
 <?php
 get_footer();

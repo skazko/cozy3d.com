@@ -104,8 +104,8 @@
 
 		</div>
 		
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+	</footer>
+</div>
 
 <?php wp_footer(); ?>
 

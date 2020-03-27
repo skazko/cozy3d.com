@@ -10,8 +10,6 @@
 html {
   -webkit-text-size-adjust: 100%;
 	box-sizing: border-box;
-	// height: 1px;
-	// min-height: 100%;
 }
 
 body {
@@ -22,24 +20,12 @@ body {
   -webkit-tap-highlight-color: transparent;
   background: var.$bg-main;
 	min-width: 320px;
-	// height: 1px;
-	// min-height: 100%;
 }
 
 a {
 	background-color: transparent;
 	text-decoration: none;
   color: inherit;
-}
-
-abbr[title] {
-	border-bottom: none; 
-	text-decoration: none; 
-}
-
-abbr, acronym {
-	border-bottom: 1px dotted var.$text-main;
-	cursor: help;
 }
 
 sub,
@@ -107,24 +93,6 @@ button:-moz-focusring,
 	outline: 1px dotted ButtonText;
 }
 
-fieldset {
-	padding: 0;
-  margin: 0;
-  border: none;
-}
-
-legend {
-	display: block; 
-  padding: 0;
-  white-space: normal;
-}
-
-textarea {
-	overflow-y: auto;
-	overflow-x: hidden;
-	width: 100%;
-}
-
 [type="checkbox"],
 [type="radio"] {
 	box-sizing: border-box;
@@ -167,17 +135,15 @@ ul, ol {
 	margin: 0 0 1.5em 3em;
 }
 
-dt {
-	font-weight: bold;
-}
-
-dd {
-	margin: 0 1.5em 1.5em;
-}
-
 img {
 	height: auto;
 	max-width: 100%;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 figure {
