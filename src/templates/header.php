@@ -10,9 +10,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
 	<?php wp_head(); ?>
-
 </head>
 
 <body <?php body_class(); ?>>
@@ -53,27 +51,10 @@
 		
 		<nav id="site-navigation" class="main-navigation">
 			<button type="button" class="main-navigation__toggler">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-					fill="none" 
-					stroke="currentColor" 
-					stroke-width="2" 
-					stroke-linecap="round" 
-					stroke-linejoin="round"
-					class="icon-open" >
-					<line x1="3" y1="12" x2="21" y2="12"></line>
-					<line x1="3" y1="6" x2="21" y2="6"></line>
-					<line x1="3" y1="18" x2="21" y2="18"></line>
-				</svg>
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-					fill="none" 
-					stroke="currentColor" 
-					stroke-width="2" 
-					stroke-linecap="round" 
-					stroke-linejoin="round"
-					class="icon-close" >
-					<line x1="18" y1="6" x2="6" y2="18"></line>
-					<line x1="6" y1="6" x2="18" y2="18"></line>
-				</svg>
+				<div class="icon">
+					<?php get_template_part('img/icon', 'menu.svg'); ?>
+					<?php get_template_part('img/icon', 'x.svg'); ?>
+				</div>
 			</button>
 			<?php wp_nav_menu( array(
 				'theme_location' => 'menu-1',
@@ -87,39 +68,49 @@
 			<?php if (esc_html( get_option('phone') )) { ?>
 				<li>
 					<a target="_blank" href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', esc_html( get_option( 'phone', '' ) ));?>">
-						<img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/wa.svg" alt="whatsapp">
+						<div class="icon">
+							<?php get_template_part('img/icon', 'wa.svg'); ?>
+						</div>
 					</a>	
 				</li>
 			<?php }
 			if (esc_html( get_option('email') )) { ?>
 				<li>
 					<a target="_blank" href="mailto:<?php echo esc_html( get_option( 'email', '' ) );?>">
-						<img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/envelope.svg" alt="Письмо">
+						<div class="icon">
+							<?php get_template_part('img/icon', 'mail.svg'); ?>
+						</div>
 					</a>
 				</li>
 			<?php }
 			if (esc_html( get_option('facebook') )) {	?>
 				<li>
 					<a target="_blank" href="https://facebook.com/<?php echo esc_html( get_option( 'facebook', '' ) );?>">
-						<img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/fb.svg" alt="Facebook">
+						<div class="icon">
+							<?php get_template_part('img/icon', 'fb.svg'); ?>
+						</div>
 					</a>	
 				</li>
 			<?php	}
 			if (esc_html( get_option('instagram') )) { ?>
 				<li>
 					<a target="_blank" href="https://instagram.com/<?php echo esc_html( get_option( 'instagram', '' ) );?>">
-						<img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/ig.svg" alt="Instagram">
+						<div class="icon">
+							<?php get_template_part('img/icon', 'instagram.svg'); ?>
+						</div>
 					</a>
 				</li>
 			<?php }
 			if (esc_html( get_option('vk') )) {	?>
 				<li>
 					<a target="_blank" href="https://vk.com/<?php echo esc_html( get_option( 'vk', '' ) );?>">
-						<img width="24px" height="24px" src="<?php echo get_template_directory_uri();?>/img/icons/vk.svg" alt="Вконтакте">
+						<div class="icon">
+							<?php get_template_part('img/icon', 'vk.svg'); ?>
+						</div>
 					</a>
 				</li>	
 			<?php } ?>
 			</ul>
 		
-	</header><!-- #masthead -->
+	</header>
 	
