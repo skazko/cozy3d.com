@@ -7,6 +7,7 @@ const cssnano = require('cssnano');
 const sourcemaps = require('gulp-sourcemaps');
 const newer = require('gulp-newer');
 const mode = require('gulp-mode')();
+const rename = require('gulp-rename');
 
 const del = require('del');
 const { rollup } = require('rollup');
