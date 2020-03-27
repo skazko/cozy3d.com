@@ -15,24 +15,24 @@ while ( have_posts() ) {
   <div class="cards-group">
     <div class="card">
       <div class="card__value">
-        <span class="value-prefix">от</span>
-        <span class="value">300</span>		
+        <span class="card__prefix">от</span>
+        <span class="card__digit">300</span>		
       </div>
       <p class="card__postfix">руб/м<sup>2</sup></p>
       <div class="card__description">Стоимость 3Д визуализации интерьера.</div>
     </div>
     <div class="card">
       <div class="card__value">
-        <span class="value-prefix">от</span>
-        <span class="value">2-5</span>		
+        <span class="card__prefix">от</span>
+        <span class="card__digit">2-5</span>		
       </div>
       <p class="card__postfix">рабочих дней</p>
       <div class="card__description">Срок исполнения (на 1 помещение)</div>
     </div>
     <div class="card">
       <div class="card__value">
-        <span class="value-prefix"></span>
-        <span class="value">3000</span>		
+        <span class="card__prefix"></span>
+        <span class="card__digit">3000</span>		
       </div>
       <p class="card__postfix">руб</p>
       <div class="card__description">Минимальная стоимость заказа на визуализацию</div>
@@ -101,7 +101,7 @@ $timeline = [
     </li>
 <?php } ?>
   </ul>
-</main><!-- #main -->
+</main>
 
 <?php
 get_footer();
