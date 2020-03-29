@@ -1,4 +1,4 @@
-import { scroller } from './src/anim/index';
+import { scroller } from './lib/scroller';
 
 (function() {
   function createHandler(item) {
