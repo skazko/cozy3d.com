@@ -17,8 +17,6 @@ $counter = 0;
 					get_template_part( 'template-parts/content', 'homepage' );
 				endwhile;
 
-				the_posts_navigation();
-
 			else :
 
 				get_template_part( 'template-parts/content', 'none' );
