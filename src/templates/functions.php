@@ -123,7 +123,11 @@ add_action( 'widgets_init', 'kateslava_widgets_init' );
 function kateslava_scripts() {
 	wp_enqueue_style( 'kateslava-style', get_stylesheet_uri(), array(), '202003271' );
 	
-	wp_enqueue_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic' );
+	wp_enqueue_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap' );
+
+	if (is_page_template('calc.php')) {
+		wp_enqueue_style( 'kateslava-calc', '/static/css/main.cfb3622e.chunk.css' );
+	}
 
 	wp_enqueue_script( 'kateslava-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20200318', true );
 

@@ -1,0 +1,10 @@
+@use './placeholders/layout.scss';
+
+.cozy3d-calculator {
+  @extend %flex-container;
+}
+
+.sample-visualisation,
+.calculator {
+  @extend %flex-item;
+}
